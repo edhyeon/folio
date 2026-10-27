@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>디자인 시스템 데모</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <style>
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+
+  
+    <!-- Display Title & Lead -->
+  <p class="ds-caption text-primary" style="font-weight: 600; text-transform: uppercase;">Production Manual</p>
+  <h1 class="ds-display">2026 수능 교재 인쇄 감리 및 사양 지침서</h1>
+  <p class="ds-lead">
+    본 문서는 교재 내지 모조지 80g 및 표지 아트지 250g 무선 제본 공정에 적용되는 표준 인쇄 규격 가이드라인입니다.
+  </p>
+
+  <hr class="divider">
+
+  <!-- H1 Headline Section -->
+  <h2 class="ds-h1">1. 판형 및 재단 규격 (Trim & Bleed)</h2>
+  <p class="ds-body">
+    모든 교재 데이터는 정밀 재단을 위해 완성선 바깥쪽으로 사방 3mm의 재단 여백(Bleed)을 필히 포함해야 합니다. 텍스트 및 핵심 다이어그램은 재단 오차를 감안하여 완성선 안쪽 5mm 안전선 내에 배치되어야 합니다.
+  </p>
+
+  <div class="spec-box">
+    <h3 class="ds-h3">재단 규격 수치 요약</h3>
+    <p class="ds-body-sm" style="margin-bottom: var(--space-xs);">
+      - <strong>완성 사이즈(B5):</strong> <span class="ds-num-mono">182 × 257 mm</span><br>
+      - <strong>작업 사이즈(재단여백 포함):</strong> <span class="ds-num-mono">188 × 263 mm</span>
+    </p>
+    <p class="ds-caption" style="margin: 0;">
+      ※ 오차 허용 범위: <span class="ds-num-mono">±0.5mm</span> 이내 (한국공업규격 KS M 7101 준수)
+    </p>
+  </div>
+
+  <!-- H2 Sub-section -->
+  <h3 class="ds-h2">2. 본문 서체 가독성 지침</h3>
+  <p class="ds-body">
+    학습용 교재는 긴 시간 집중도를 유지하기 위해 일반 웹 문서보다 자간을 <span class="text-danger">0.5% 더 넓게</span> 설정하며, 행간은 최소 160% 이상을 유지합니다. 해설지의 각주 및 주석 텍스트는 <span class="ds-caption text-muted">최소 8pt(약 11px)</span> 이하로 내려가지 않도록 마크업 방어 코드를 적용합니다.
+  </p>
+
+  <!-- H3 Card Title & Inline Badge -->
+  <div style="margin-top: var(--space-lg); padding-top: var(--space-md); border-top: 1px dashed var(--color-border);">
+    <h4 class="ds-h3" style="display: flex; align-items: center; gap: var(--space-xs);">
+      공정 승인 상태 
+      <span class="ds-badge ds-badge--success ds-num-mono">APPROVED</span>
+    </h4>
+    <p class="ds-caption">
+      최종 승인자: 대성전산 생산본부 품질감리팀 · 발행번호: <span class="ds-num-mono">DS-2026-0814</span>
+    </p>
+  </div>
+
+  <!-- 1. 탭 버튼 섹션 -->
+  <div class="panel">
+    <div class="ds-tabs" role="tablist" aria-label="출판 공정 탭">
+      <button class="ds-tab-btn" role="tab" aria-selected="true" id="tab-1">교재 사양 선택</button>
+      <button class="ds-tab-btn" role="tab" aria-selected="false" id="tab-2">후가공 옵션</button>
+      <button class="ds-tab-btn" role="tab" aria-selected="false" id="tab-3">발주 내역 확인</button>
+    </div>
+
+    <!-- 2. 추가 폼 요소 (라디오, 체크박스, Textarea, 텍스트 버튼) -->
+    <form>
+      <!-- 인쇄 도수 라디오 버튼 -->
+      <div class="ds-form-group">
+        <label class="ds-label">인쇄 도수 설정<span class="ds-label__required">*</span></label>
+        <div class="ds-choice-group">
+          <label class="ds-choice-label">
+            <input type="radio" name="color-mode" value="4" checked> 칼라 4도 (표지/화보)
+          </label>
+          <label class="ds-choice-label">
+            <input type="radio" name="color-mode" value="1"> 흑백 1도 (본문 일반)
+          </label>
+          <label class="ds-choice-label">
+            <input type="radio" name="color-mode" value="2"> 2도 인쇄 (학습지)
+          </label>
+        </div>
+      </div>
+
+      <!-- 후가공 체크박스 -->
+      <div class="ds-form-group">
+        <label class="ds-label">표지 코팅 및 가공</label>
+        <div class="ds-choice-group">
+          <label class="ds-choice-label">
+            <input type="checkbox" name="finish" value="matte" checked> 무광 라미네이팅
+          </label>
+          <label class="ds-choice-label">
+            <input type="checkbox" name="finish" value="foil"> 금/은박
+          </label>
+          <label class="ds-choice-label">
+            <input type="checkbox" name="finish" value="score"> 오시(접힘선)
+          </label>
+        </div>
+      </div>
+
+      <!-- Textarea (인쇄 감리 및 배송 요청사항) -->
+      <div class="ds-form-group">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <label for="memo" class="ds-label">인쇄 감리 및 작업 지시사항</label>
+          <button type="button" class="ds-btn--text ds-btn--text-muted" onclick="document.getElementById('memo').value='본문 15p 폰트 뭉침 주의 및 교재 간지 삽입 필수';">자주 쓰는 문구 입력</button>
+        </div>
+        <textarea id="memo" class="ds-textarea" placeholder="별색 지정 번호(Pantone) 또는 재단 시 주의사항을 기재하세요."></textarea>
+      </div>
+
+      <!-- 버튼 및 텍스트 버튼 믹스 -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-md);">
+        <button type="button" class="ds-btn--text" id="open-modal-btn">용지 규격 가이드 확인</button>
+        <div style="display: flex; gap: var(--space-xs);">
+          <button type="button" class="ds-btn ds-btn--outline">임시저장</button>
+          <button type="button" class="ds-btn ds-btn--primary">내역 추가</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- 3. 발주 품목 데이터 테이블 -->
+  <div class="panel">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+      <h3 style="margin: 0; font-size: var(--font-size-base);">인쇄 품목 발주 리스트</h3>
+      <span class="ds-badge">총 3건 대기</span>
+    </div>
+
+    <div class="ds-table-wrapper">
+      <table class="ds-table">
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>품명(도서명)</th>
+            <th>판형 / 지업</th>
+            <th class="cell-num">부수</th>
+            <th class="cell-num">예상 견적</th>
+            <th>상태</th>
+            <th>관리</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>본권</td>
+            <td><strong>2026 수능완성 수학영역</strong></td>
+            <td>46배판(B5) / 모조 80g</td>
+            <td class="cell-num">3,000</td>
+            <td class="cell-num">₩ 4,250,000</td>
+            <td><span class="ds-badge ds-badge--success">접수완료</span></td>
+            <td><button class="ds-btn--text">수정</button></td>
+          </tr>
+          <tr>
+            <td>해설</td>
+            <td>정답 및 오답노트 해설집</td>
+            <td>국배판(A4) / 중질 70g</td>
+            <td class="cell-num">3,000</td>
+            <td class="cell-num">₩ 1,180,000</td>
+            <td><span class="ds-badge">대기</span></td>
+            <td><button class="ds-btn--text">수정</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- 4. 레이어 팝업 (Modal) -->
+<div class="ds-modal-backdrop" id="sample-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="ds-modal">
+    <div class="ds-modal-header">
+      <h3 class="ds-modal-title" id="modal-title">표준 인쇄 판형 안내</h3>
+      <button class="ds-modal-close" id="close-modal-btn" aria-label="닫기">&times;</button>
+    </div>
+    <div class="ds-modal-body">
+      <p style="margin-top: 0;">교재 인쇄 시 주로 사용하는 표준 판형 절수 규격입니다.</p>
+      <ul>
+        <li><strong>국배판 (A4):</strong> 210 × 297 mm (모의고사, 워크북)</li>
+        <li><strong>46배판 (B5):</strong> 182 × 257 mm (일반 학원 교재 다용)</li>
+        <li><strong>국판 (A5):</strong> 148 × 210 mm (소책자, 단어장)</li>
+      </ul>
+      <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin-bottom: 0;">
+        ※ 재단 여백(사방 3mm Bleed)이 포함되지 않은 순수 완성 사이즈입니다.
+      </p>
+    </div>
+    <div class="ds-modal-footer">
+      <button type="button" class="ds-btn ds-btn--primary" id="confirm-modal-btn">확인</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 모달 제어 스크립트 (접근성을 위한 ESC 닫기 포함)
+  const modal = document.getElementById('sample-modal');
+  const openBtn = document.getElementById('open-modal-btn');
+  const closeBtn = document.getElementById('close-modal-btn');
+  const confirmBtn = document.getElementById('confirm-modal-btn');
+
+  function openModal() {
+    modal.classList.add('is-active');
+    closeBtn.focus();
+  }
+  function closeModal() {
+    modal.classList.remove('is-active');
+    openBtn.focus();
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  confirmBtn.addEventListener('click', closeModal);
+
+  // ESC 키 누를 때 모달 닫기
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+      closeModal();
+    }
+  });
+
+  // 탭 전환 인터랙션 샘플
+  const tabs = document.querySelectorAll('.ds-tab-btn');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+      tab.setAttribute('aria-selected', 'true');
+    });
+  });
+</script>
+
+</body>
+</html>

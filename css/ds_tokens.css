@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   Design Tokens (tokens.css)
+   대성전산 인쇄/발주 시스템 디자인 시스템 기반 변수 체계
+   ========================================================================== */
+
+:root {
+
+  /* ==========================================================================
+  Typography Tokens (위계 및 행간/자간 표준화)
+  ========================================================================== */
+  
+  --font-family-base: "Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-family-mono: "JetBrains Mono", Consolas, monospace; /* 코드/견적 수치용 */
+
+  /* Font Sizes */
+  --font-size-display: 2rem;    /* 32px - 메인 대시보드/서비스 타이틀 */
+  --font-size-h1: 1.5rem;       /* 24px - 페이지 메인 헤드라인 */
+  --font-size-h2: 1.25rem;      /* 20px - 섹션 그룹 타이틀 */
+  --font-size-h3: 1.125rem;     /* 18px - 카드/패널 소제목 */
+  --font-size-body: 1rem;       /* 16px - 일반 본문 */
+  --font-size-body-sm: 0.875rem;/* 14px - 폼 텍스트, 설명글 */
+  --font-size-caption: 0.75rem; /* 12px - 주석, 배지, 캡션 */
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line Heights (도메인 특성상 본문 행간 확보) */
+  --line-height-tight: 1.25;  /* 헤드라인용 */
+  --line-height-normal: 1.5;  /* UI 요소/버튼용 */
+  --line-height-relaxed: 1.65;/* 긴 본문/가이드용 */
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.02em; /* 큰 헤드라인 */
+  --letter-spacing-normal: -0.01em;/* 본문 기본 */
+  --letter-spacing-wide: 0.02em;   /* 영문 대문자, 코드 */
+
+  /* Color Tokens - 브랜드 및 시맨틱 컬러 */
+  --color-primary: #1e3a8a;          /* 신뢰감을 주는 메인 네이비 */
+  --color-primary-hover: #172554;
+  --color-accent: #2563eb;           /* 액션/포커스 포인트 블루 */
+  
+  --color-bg-base: #f8fafc;          /* 기본 바탕색 */
+  --color-bg-surface: #ffffff;       /* 카드, 폼 등 서피스 배경 */
+  --color-border: #cbd5e1;           /* 기본 보더 */
+  --color-border-focus: #2563eb;     /* 활성화 보더 */
+
+  --color-text-main: #0f172a;        /* 본문 및 타이틀 (명도대비 준수) */
+  --color-text-muted: #64748b;       /* 설명문 및 라벨 서브 */
+  --color-text-disabled: #94a3b8;
+
+  /* Status Colors (주문/출판 공정 상태) */
+  --color-status-success: #16a34a;   /* 인쇄 완료 */
+  --color-status-warning: #ea580c;   /* 감리 대기 */
+  --color-status-danger: #dc2626;    /* 오류/반려 */
+
+  /* Spacing Tokens */
+  --space-2xs: 0.25rem; /* 4px */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 0.75rem;  /* 12px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2rem;     /* 32px */
+
+  /* Component Dimension Tokens (폼/버튼 통일 규격) */
+  --control-height-sm: 36px;
+  --control-height-md: 44px; /* 모바일/터치 접근성 최적화 높이 */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}

@@ -1,0 +1,391 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   Component Modules (components.css)
+   BEM 네이밍 기반 컴포넌트 아키텍처
+   ========================================================================== */
+
+/* ==========================================================================
+   Typography Components & Utility Classes
+   ========================================================================== */
+
+/* 1. Display & Headings */
+.ds-display {
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-main);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.ds-h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-main);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.ds-h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-main);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.ds-h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-main);
+  margin: 0 0 var(--space-2xs) 0;
+}
+
+/* 2. Subtitle & Body */
+.ds-lead {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.ds-body {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--color-text-main);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.ds-body-sm {
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-main);
+}
+
+/* 3. Captions, Labels & Monospace */
+.ds-caption {
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-muted);
+}
+
+.ds-num-mono {
+  font-family: var(--font-family-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* 4. Text Modifiers */
+.text-muted { color: var(--color-text-muted) !important; }
+.text-primary { color: var(--color-primary) !important; }
+.text-danger { color: var(--color-status-danger) !important; }
+
+/* 1. Button Component */
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--control-height-md);
+  padding: 0 var(--space-md);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+}
+
+.ds-btn--primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.ds-btn--primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.ds-btn--outline {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text-main);
+}
+
+.ds-btn--outline:hover {
+  background-color: var(--color-bg-base);
+}
+
+.ds-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* 2. Form Control (인쇄 주문용 정밀 폼) */
+.ds-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.ds-label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.ds-label__required {
+  color: var(--color-status-danger);
+  margin-left: var(--space-2xs);
+}
+
+.ds-input,
+.ds-select {
+  height: var(--control-height-md);
+  padding: 0 var(--space-sm);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ds-input:focus,
+.ds-select:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: var(--focus-ring);
+}
+
+.ds-form-hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* 3. Badge (공정 및 상태 표시) */
+.ds-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: 9999px;
+  background-color: #e2e8f0;
+  color: var(--color-text-main);
+}
+
+.ds-badge--success {
+  background-color: #dcfce7;
+  color: var(--color-status-success);
+}
+
+/* ==========================================================================
+   Extended UI Components
+   ========================================================================== */
+
+/* 1. Text Button */
+.ds-btn--text {
+  background: transparent;
+  border: none;
+  color: var(--color-accent);
+  padding: 0 var(--space-xs);
+  height: auto;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.ds-btn--text:hover {
+  color: var(--color-primary-hover);
+}
+.ds-btn--text-muted {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+.ds-btn--text-muted:hover {
+  text-decoration: underline;
+}
+
+/* 2. Textarea & Checkbox/Radio */
+.ds-textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: var(--space-sm);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  resize: vertical;
+  box-sizing: border-box;
+}
+.ds-textarea:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: var(--focus-ring);
+}
+
+.ds-choice-group {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-2xs);
+}
+.ds-choice-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-main);
+  cursor: pointer;
+}
+.ds-choice-label input {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* 3. Tab Navigation */
+.ds-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--color-border);
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+.ds-tab-btn {
+  background: transparent;
+  border: none;
+  padding: var(--space-sm) var(--space-2xs);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  position: relative;
+  bottom: -2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.ds-tab-btn[aria-selected="true"] {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+.ds-tab-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* 4. Data Table (인쇄 발주/견적용) */
+.ds-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  margin-bottom: var(--space-lg);
+}
+.ds-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+  text-align: left;
+}
+.ds-table th,
+.ds-table td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+.ds-table th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  color: var(--color-text-main);
+  white-space: nowrap;
+}
+.ds-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.ds-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+.ds-table .cell-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 5. Layer Popup / Modal */
+.ds-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+.ds-modal-backdrop.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.ds-modal {
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  transform: translateY(16px);
+  transition: transform 0.2s ease-in-out;
+}
+.ds-modal-backdrop.is-active .ds-modal {
+  transform: translateY(0);
+}
+.ds-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+.ds-modal-title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-main);
+}
+.ds-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  line-height: 1;
+  padding: var(--space-2xs);
+}
+.ds-modal-body {
+  padding: var(--space-lg);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-main);
+}
+.ds-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+  padding: var(--space-md) var(--space-lg);
+  background: #f8fafc;
+  border-top: 1px solid var(--color-border);
+}
